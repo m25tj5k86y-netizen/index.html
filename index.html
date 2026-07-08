@@ -2,6 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <script>
+  // Этот скрипт автоматически уменьшит масштаб страницы, если её открыли с телефона
+  function adjustViewport() {
+    var width = 1200; // Укажите здесь ширину вашего дизайна в Канве (обычно 1200, 1440 или 1920)
+    var viewScale = window.screen.width / width;
+    var meta = document.querySelector('meta[name="viewport"]');
+    if (window.screen.width < width) {
+      meta.setAttribute('content', 'width=' + width + ', initial-scale=' + viewScale + ', maximum-scale=' + viewScale + ', user-scalable=no');
+    } else {
+      meta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }
+  }
+  window.onload = adjustViewport;
+  window.onresize = adjustViewport;
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ольга | Нумерология</title>
     <style>
